@@ -59,6 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RepositoryImpl\EnchantmentRepositoryImpl.cs" />
+    <Compile Include="Repository\IEnchantmentRepository.cs" />
+    <Compile Include="Services\AxeService.cs" />
     <Compile Include="Entity\Axe.cs" />
     <Compile Include="Entity\Bow.cs" />
     <Compile Include="Entity\Enchantment.cs" />
@@ -74,6 +77,12 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryImpl\AxeRepositoryImpl.cs" />
+    <Compile Include="RepositoryImpl\BowRepositoryImpl.cs" />
+    <Compile Include="RepositoryImpl\SwordRepositoryImpl.cs" />
+    <Compile Include="Repository\IAxeRepository.cs" />
+    <Compile Include="Repository\IBowRepository.cs" />
+    <Compile Include="Repository\ISwordRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -87,6 +96,7 @@
       <DependentUpon>202003111825285_FirstMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

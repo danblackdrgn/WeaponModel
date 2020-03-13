@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeaponEntities.Entity;
+using WeaponEntities.Services;
 
 namespace WeaponModel
 {
@@ -11,27 +12,30 @@ namespace WeaponModel
     {
         static void Main(string[] args)
         {
-            using (var db = new WeaponDb())
+            // DECLARACIONES
+            AxeService axeService = new AxeService();
+            Axe axe = new Axe();
+
+            // ASIGNACION
+            axe.Name = "Pharao Axe";
+            axe.Attack = 100;
+            axe.Handler = 3;
+
+            // IAMADA AL SERVIZ
+            axeService.AddNewAxe(axe);
+            var axes = axeService.GetAllAxes();
+
+            foreach (var axeItem in axes)
             {
-                Axe axe = new Axe();
-                axe.Name = "Stonecutter Axe";
-                axe.Attack = 50;
-                axe.Handler = 1;
-                db.Axes.Add(axe);
-                db.SaveChanges();
-
-                var axes = from a in db.Axes
-                           orderby a.Name
-                           select a;
-
-                Console.WriteLine("All Axes in database");
-                foreach (var axeItem in axes)
-                {
-                    Console.WriteLine(axeItem.Name);
-                    Console.WriteLine(axeItem.Attack);
-                }
-                Console.ReadKey();
+                Console.WriteLine(axeItem.Name);
+                Console.WriteLine(axeItem.Attack);
+                Console.WriteLine(axeItem.Handler);
+                Console.WriteLine(axeItem.Enchantment.Element);
+                Console.WriteLine(axeItem.Enchantment.Level);
             }
+
+            Console.ReadKey();
+            
         }
     }
 }
